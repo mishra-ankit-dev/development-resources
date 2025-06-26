@@ -5,10 +5,12 @@ import { firstEventSignal } from './first-event-signal.util';
   selector: 'app-welcome-overlay',
   standalone: true,
   template: `
-    <div *ngIf="showOverlay()" class="overlay">
-      <h2>Welcome!</h2>
-      <p>Click or press any key to continue...</p>
-    </div>
+    @if (showOverlay()) {
+      <div class="overlay">
+        <h2>Welcome!</h2>
+        <p>Click or press any key to continue...</p>
+      </div>
+    }
     <div>
       <p>Main app content goes here.</p>
     </div>
@@ -21,11 +23,10 @@ import { firstEventSignal } from './first-event-signal.util';
     }
   `]
 })
-export class WelcomeOverlayComponent implements OnInit, OnDestroy {
+export class WelcomeOverlayComponent implements OnDestroy {
   private eventWatcher = firstEventSignal(document, ['click', 'keypress']);
   showOverlay = computed(() => this.eventWatcher.signal() === null);
 
-  ngOnInit() {}
   ngOnDestroy() {
     this.eventWatcher.unsubscribe();
   }
