@@ -39,10 +39,10 @@ For clearer usability, add a visible drag handle to your element (right edge rec
       cursor: ew-resize; background: #eee;">
   </div>
 </div>
-
-	•	The directive remains on the outer <div>.
-	•	The handle is just for better visual feedback.
 ```
+
+- The directive remains on the outer <div>
+- The handle is just for better visual feedback.
 
 ---
 
