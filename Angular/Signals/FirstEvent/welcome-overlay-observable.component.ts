@@ -1,15 +1,17 @@
-import { Component, OnInit, OnDestroy, signal, computed } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { BehaviorSubject, Subscription } from 'rxjs';
 import { firstEvent } from './first-event.util';
 
 @Component({
   selector: 'app-welcome-overlay',
   standalone: true,
   template: `
-    <div *ngIf="showOverlay()" class="overlay">
-      <h2>Welcome!</h2>
-      <p>Click or press any key to continue...</p>
-    </div>
+    @if ((showOverlay$ | async)) {
+      <div class="overlay">
+        <h2>Welcome!</h2>
+        <p>Click or press any key to continue...</p>
+      </div>
+    }
     <div>
       <p>Main app content goes here.</p>
     </div>
@@ -23,14 +25,14 @@ import { firstEvent } from './first-event.util';
   `]
 })
 export class WelcomeOverlayComponent implements OnInit, OnDestroy {
-  private userInteracted = signal(false);
-  showOverlay = computed(() => !this.userInteracted());
+  private showOverlaySubject = new BehaviorSubject(true);
+  showOverlay$ = this.showOverlaySubject.asObservable();
 
   private sub?: Subscription;
 
   ngOnInit() {
     this.sub = firstEvent(document, ['click', 'keypress']).subscribe(() => {
-      this.userInteracted.set(true);
+      this.showOverlaySubject.next(false);
     });
   }
 
