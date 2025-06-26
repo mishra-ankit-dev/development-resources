@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ResizerDirective } from './shared/resizer.directive';
+import { ResizerDirective } from './resizer.directive';
 
 @Component({
   selector: 'app-resizable-panel',

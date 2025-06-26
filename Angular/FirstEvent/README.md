@@ -20,7 +20,7 @@ This approach gives you a reactive **signal** that you can use in templates, com
 
 [Stackblitz demo URL](https://stackblitz.com/edit/stackblitz-starters-dmgajsru)
 
-### **API**
+### API
 
 ```ts
 import { firstEventSignal } from './first-event-signal.util';
@@ -31,7 +31,7 @@ const { signal: eventSignal, unsubscribe } = firstEventSignal(document, ['click'
 - eventSignal() is null until the event fires, then contains the event object.
 -	Call unsubscribe() (e.g., in ngOnDestroy) for cleanup.
 
-Usage Example
+### Usage Example
 
 ```ts
 import { Component, OnInit, OnDestroy, computed } from '@angular/core';
@@ -66,7 +66,7 @@ export class WelcomeOverlayComponent implements OnInit, OnDestroy {
 
 This is a classic RxJS pattern: emits and completes on the first event (from any you specify).
 
-API
+### API
 
 ```ts
 import { firstEvent } from './first-event.util';
@@ -79,7 +79,7 @@ const sub = firstEvent(document, ['click', 'keypress']).subscribe(event => {
 -	The returned Observable emits the first event and then completes.
 -	Unsubscribe only if you need to manually clean up before the event fires.
 
-Usage Example
+### Usage Example
 
 ```ts
 import { Component, OnInit, OnDestroy, signal, computed } from '@angular/core';

@@ -79,9 +79,9 @@ export class ThemeToggleComponent {
 }
 ```
 
-⚙️ Advanced Options
-	•	Use sessionStorage or a custom storage engine by passing { storage: sessionStorage } to createStorageSignal.
-	•	Serialize data for security or compression:
+## ⚙️ Advanced Options
+-	Use sessionStorage or a custom storage engine by passing { storage: sessionStorage } to createStorageSignal.
+-	Serialize data for security or compression:
 
 ```ts
 const user = createStorageSignal('user', {}, {
@@ -90,15 +90,15 @@ const user = createStorageSignal('user', {}, {
 });
 ```
 
-🧪 Testing
-	•	Mock localStorage in unit tests for deterministic results.
-	•	All stores are plain Angular services—no test-specific configuration needed.
+## 🧪 Testing
+-	Mock localStorage in unit tests for deterministic results.
+-	All stores are plain Angular services—no test-specific configuration needed.
 
-🙋 FAQ
+## 🙋 FAQ
 
 Q: Can I use this for arrays or objects?
 
-A: Yes—use signal<T[]>, signal<{...}>, etc.
+A: Yes—use `signal<T[]>`, `signal<{...}>`, etc.
 
 Q: Is this a replacement for NgRx/Akita?
 
