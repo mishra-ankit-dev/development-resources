@@ -3,6 +3,8 @@
 A simple, reusable Angular directive for mouse-based horizontal resizing of elements.  
 Powered by RxJS and Angular’s standalone APIs.
 
+[Stackblitz Demo URL](https://stackblitz.com/edit/stackblitz-starters-sbpszsj5)
+
 ---
 
 ## ✨ Features
